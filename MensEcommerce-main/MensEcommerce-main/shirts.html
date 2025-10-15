@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav-menu ul li a {
+        color: black;
+      }
+      .nav-menu ul li::before {
+        content: "";
+        width: 0%;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: all 0.3s;
+      }
+      #cart {
+        background: transparent;
+        border: 0;
+        outline: 0;
+        margin-left: 12px;
+      }
+      @media screen and (max-width: 600px) {
+        .nav-menu ul li a {
+          color: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header style="background: radial-gradient(#fff, #e25e4c)">
+      <div class="logo">
+        <img src="./assets/logo.png" />
+      </div>
+      <div class="nav-menu">
+        <nav>
+          <ul id="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <li><a href="signup.html">Account</a></li>
+          </ul>
+        </nav>
+        <div class="nav-icons">
+          <img
+            id="header-menu"
+            src="./assets/menu.png"
+            alt="Menu Icon"
+            onclick="menutoggle()"
+          />
+          <button id="cart">
+            <img src="./assets/cart.png" alt="Cart Icon" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <h1 id="denim">Denim Jackets</h1>
+    <section id="menu-point"></section>
+    <section class="hoodie">
+      <h1 id="hoodies">Hoodies</h1>
+      <div class="hoodies"></div>
+    </section>
+    <section class="Tshirt">
+      <h1 id="hoodies">Tshirts</h1>
+      <div class="tshirts">
+        <div id="card">
+          <img src="./assets/tshirt.jpg" alt="" style="width: 220px" />
+          <h2>Tshirt</h2>
+          <p>₹ 1299</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
+            facilis animi
+          </p>
+          <button>Add to cart</button>
+        </div>
+        <div id="card">
+          <img src="./assets/tshirt.jpg" alt="" style="width: 220px" />
+          <h2>Tshirt</h2>
+          <p>₹ 1299</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
+            facilis animi
+          </p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const cardData = [
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          image:
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTRg9-7CzkNgkGH13_6KmITRnGPKey0d5MK3iJxbCESOB9mUroEfdkDDAttTx28gMTcSkvmd6ymkjTLeMyFck4m9X8TO2iQ4JtQPfJgtPJ1TzKcFAjuo9Cy",
+          title: "Denim",
+          price: "₹ 999",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+      ];
+
+      const menuPoint = document.getElementById("menu-point");
+
+      cardData.forEach((card) => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
+        cardDiv.setAttribute("id", "card");
+
+        cardDiv.innerHTML = `
+    <img src="${card.image}" alt="${card.title}" />
+    <h2>${card.title}</h2>
+    <p>${card.price}</p>
+    <p>${card.description}</p>
+    <button>Add to cart</button>
+  `;
+
+        menuPoint.appendChild(cardDiv);
+      });
+
+      const hoodiesData = [
+        {
+          id: 1,
+          image: "./assets/hoodie.jpg",
+          title: "Hoodie",
+          price: 1299,
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione facilis animi",
+        },
+        {
+          id: 2,
+          image: "./assets/hoodie2.jpg",
+          title: "Hoodie Black",
+          price: 1499,
+          description:
+            "Stylish black hoodie for winter. Lorem ipsum dolor sit amet.",
+        },
+        {
+          id: 3,
+          image: "./assets/hoodie3.jpg",
+          title: "Hoodie Grey",
+          price: 1399,
+          description:
+            "Comfortable grey hoodie with premium fabric. Lorem ipsum dolor sit amet.",
+        },
+        {
+          id: 4,
+          image: "./assets/hoodie4.jpg",
+          title: "Hoodie Grey",
+          price: 1499,
+          description:
+            "Comfortable grey hoodie with premium fabric. Lorem ipsum dolor sit amet.",
+        },
+      ];
+      const hoodiesSection = document.querySelector(".hoodies");
+
+      hoodiesData.forEach((hoodie) => {
+        const card = document.createElement("div");
+        card.id = "card";
+
+        card.innerHTML = `
+    <img src="${hoodie.image}" alt="${hoodie.title}" style="width: 220px" />
+    <h2>${hoodie.title}</h2>
+    <p>₹ ${hoodie.price}</p>
+    <p>${hoodie.description}</p>
+    <button>Add to cart</button>
+  `;
+
+        hoodiesSection.appendChild(card);
+      });
+    </script>
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", () => {
+        loader.style.display = "none";
+      });
+    </script>
+    <script>
+      // js for toggle menu
+      var menuItems = document.getElementById("menu-items");
+
+      function menutoggle() {
+        if (menuItems.style.display === "none") {
+          menuItems.style.display = "flex";
+        } else {
+          menuItems.style.display = "none";
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        var cart = document.getElementById("cart");
+        cart.onclick = function () {
+          console.log(200); 
+          window.location = "cart.html"; 
+        };
+      });
+    </script>
+  </body>
+</html>
